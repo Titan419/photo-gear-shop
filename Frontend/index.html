@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photo Gear Shop</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f7;
+      color: #222;
+    }
+
+    /* Navigation */
+    nav {
+      background: #1b1f3b;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    nav h1 {
+      color: #fff;
+      font-size: 1.5rem;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .cart-btn, .checkout-btn {
+      background-color: #ff6b6b;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.3s ease;
+      position: relative;
+    }
+
+    .cart-btn:hover {
+      background-color: #ff5252;
+    }
+
+    .checkout-btn {
+      background-color: #51cf66;
+    }
+
+    .checkout-btn:hover {
+      background-color: #40c057;
+    }
+
+    #cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #ff4444;
+      color: white;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #1b1f3b 0%, #3b6ea5 100%);
+      color: #fff;
+    }
+
+    .hero h1 {
+      margin: 0 0 15px;
+      font-size: 3rem;
+    }
+
+    .hero p {
+      margin: 0;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    /* Products Section */
+    .products {
+      display: grid;
+      gap: 24px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      min-height: 300px;
+    }
+
+    .products:empty::before {
+      content: "Loading products...";
+      grid-column: 1 / -1;
+      text-align: center;
+      color: #666;
+      font-size: 1.2rem;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    }
+
+    .product-card img {
+      width: 100%;
+      display: block;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .product-content {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-content h2 {
+      margin: 0 0 10px;
+      font-size: 1.3rem;
+    }
+
+    .product-content p {
+      margin: 0 0 16px;
+      color: #555;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .product-content .price {
+      font-weight: 700;
+      color: #1f4e79;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+
+    .product-content button {
+      background-color: rgb(20, 20, 216);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s ease;
+    }
+
+    .product-content button:hover {
+      background-color: #1515a8;
+    }
+
+    .product-content .order-link {
+      display: inline-block;
+      text-align: center;
+      margin-top: 10px;
+      background-color: #ff6b6b;
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .product-content .order-link:hover {
+      background-color: #ff5252;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 24px 20px;
+      color: #666;
+      font-size: 0.95rem;
+      margin-top: 20px;
+      border-top: 1px solid #ddd;
+    }
+
+    /* Loading indicator */
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation with Cart -->
+  <nav>
+    <h1>📸 Elite Camera Store</h1>
+    <div class="nav-buttons">
+      <button class="cart-btn" onclick="viewCart()">
+        🛒 Cart <span id="cart-count">0</span>
+      </button>
+      <button class="checkout-btn" onclick="checkout()">💳 Checkout</button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <h1>Capture the Moment</h1>
+    <p>Discover premium cameras and photo-shoot prints for photographers, creators, and anyone who loves great visual storytelling.</p>
+  </header>
+
+  <!-- Products loaded dynamically from API -->
+  <section class="products"></section>
+
+  <footer>
+    <p>&copy; 2026 Elite Camera Store. All rights reserved.</p>
+  </footer>
+
+  <!-- Load the API integration script -->
+  <script src="app.js"></script>
+</body>
+</html>
