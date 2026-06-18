@@ -198,8 +198,8 @@ app.get("/", (req, res) => {
 
 // Start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`✅ API running on http://localhost:${PORT}`);
-  console.log(`📦 Products: GET http://localhost:${PORT}/api/products`);
-  console.log(`📝 Place Order: POST http://localhost:${PORT}/api/orders`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`✅ API running on http://0.0.0.0:${PORT}`);
+  console.log(`📦 Products: GET http://0.0.0.0:${PORT}/api/products`);
+  console.log(`📝 Place Order: POST http://0.0.0.0:${PORT}/api/orders`);
 });
