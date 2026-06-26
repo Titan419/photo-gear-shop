@@ -1,7 +1,7 @@
 // Shopping cart in localStorage
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-const API_URL = "http://localhost:3000/";
+const API_URL = "https://photo-gear-shop.onrender.com/";
 
 // ============ FETCH & DISPLAY PRODUCTS ============
 async function loadProducts() {
