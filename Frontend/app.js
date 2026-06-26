@@ -150,3 +150,8 @@ document.addEventListener("DOMContentLoaded", () => {
   loadProducts();
   updateCartCount();
 });
+
+// Handle the rejection at the end of the promise chain
+fetchData()
+  .then(data => console.log(data))
+  .catch(err => console.error('Caught error:', err));
