@@ -6,7 +6,7 @@ const API_URL = "https://photo-gear-shop.onrender.com/";
 // ============ FETCH & DISPLAY PRODUCTS ============
 async function loadProducts() {
   try {
-    const response = await fetch(`${API_URL}/products`);
+    const response = await fetch(`${API_URL}/Frontend/products`);
     if (!response.ok) {
       throw new Error(`Server returned status ${response.status}: ${response.statusText}`);
     }
