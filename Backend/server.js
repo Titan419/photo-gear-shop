@@ -19,7 +19,7 @@ let products = [
     id: 1,
     name: "Mirrorless Camera",
     price: 2550000,
-    image: "Products/Mirrorless_Camera.jpg",
+    image: "/products/Mirrorless_Camera.jpg",
     description: "Lightweight, fast, and perfect for travel photography with stunning image quality.",
     orderLink: "https://docs.google.com/forms/d/e/1FAIpQLScXVCkdkI9Jkn4CSUK8-OT9KmBhcawlYhRR0-1-uY6l1qnn8g/viewform?usp=pp_url&entry.1290115755=Mirrorless+Camera"
   },
@@ -27,7 +27,7 @@ let products = [
     id: 2,
     name: "DSLR Camera",
     price: 2050000,
-    image: "Products/DSLR_Camera.jpg",
+    image: "/products/DSLR_Camera.jpg",
     description: "Reliable professional gear for portraits, events, and creative studio work.",
     orderLink: "https://docs.google.com/forms/d/e/1FAIpQLScXVCkdkI9Jkn4CSUK8-OT9KmBhcawlYhRR0-1-uY6l1qnn8g/viewform?usp=pp_url&entry.1290115755=DSLR+Camera"
   },
@@ -35,7 +35,7 @@ let products = [
     id: 3,
     name: "Photo-Shoot Prints",
     price: 100000,
-    image: "Products/Photoshooting.jpg",
+    image: "/products/Photoshooting.jpg",
     description: "Beautifully printed photography ready to frame, ideal for home décor or gifts.",
     orderLink: "https://docs.google.com/forms/d/e/1FAIpQLScXVCkdkI9Jkn4CSUK8-OT9KmBhcawlYhRR0-1-uY6l1qnn8g/viewform?usp=pp_url&entry.1290115755=Photoshoot+Prints"
   },
@@ -43,7 +43,7 @@ let products = [
     id: 4,
     name: "Portrait Lens Kit",
     price: 1000000,
-    image: "Products/Lens.jpg",
+    image: "/products/Lens.jpg",
     description: "Premium lens bundle designed for crisp portraits and low-light shoots.",
     orderLink: "https://docs.google.com/forms/d/e/1FAIpQLScXVCkdkI9Jkn4CSUK8-OT9KmBhcawlYhRR0-1-uY6l1qnn8g/viewform?usp=pp_url&entry.1290115755=Lens+Kit"
   }
